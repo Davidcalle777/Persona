@@ -30,7 +30,7 @@ public class Main {
             personas[i] = new Persona(nombre, apellido, genero, edad);
         }
 
-        // Mostrar solo nombre y género de las 5 personas
+        // Mostrar solo nombre y género de las 5 persona
         System.out.println("\n== Nombres y Géneros de las personas ingresadas ==");
         for (Persona persona : personas) {
             System.out.println("Nombre: " + persona.getNombre() + " | Género: " + persona.getGenero());
