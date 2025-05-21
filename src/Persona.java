@@ -20,6 +20,10 @@ public class Persona {
         return genero;
     }
 
+    public int getEdad() {
+        return edad;
+    }
+
     // Método opcional para mostrar todos los datos
     public void mostrarDatos() {
         System.out.println("Nombre: " + nombre);
