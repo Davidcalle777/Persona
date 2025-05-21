@@ -1,15 +1,46 @@
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
-public class Main {
-    public static void main(String[] args) {
-        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-        // to see how IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
+import java.util.Scanner;
 
-        for (int i = 1; i <= 5; i++) {
-            //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-            // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-            System.out.println("i = " + i);
+public class Main {
+
+    // Método que captura 5 personas y retorna solo nombre y género
+    public static void capturarNombreYGenero() {
+        Scanner scanner = new Scanner(System.in);
+
+        // Arreglo para guardar 5 objetos Persona
+        Persona[] personas = new Persona[5];
+
+        System.out.println("== Ingreso de datos de 5 personas ==");
+
+        for (int i = 0; i < 5; i++) {
+            System.out.println("\nPersona " + (i + 1) + ":");
+
+            System.out.print("Nombre: ");
+            String nombre = scanner.nextLine();
+
+            System.out.print("Apellido: ");
+            String apellido = scanner.nextLine();
+
+            System.out.print("Género: ");
+            String genero = scanner.nextLine();
+
+            System.out.print("Edad: ");
+            int edad = Integer.parseInt(scanner.nextLine());
+
+            // Crear persona y agregar al arreglo
+            personas[i] = new Persona(nombre, apellido, genero, edad);
         }
+
+        // Mostrar solo nombre y género de las 5 personas
+        System.out.println("\n== Nombres y Géneros de las personas ingresadas ==");
+        for (Persona persona : personas) {
+            System.out.println("Nombre: " + persona.getNombre() + " | Género: " + persona.getGenero());
+        }
+
+        scanner.close();
+    }
+
+    // Método principal
+    public static void main(String[] args) {
+        capturarNombreYGenero();
     }
 }
