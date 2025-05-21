@@ -2,11 +2,10 @@ import java.util.Scanner;
 
 public class Main {
 
-    // Método que captura 5 personas y retorna solo nombre y género
-    public static void capturarNombreYGenero() {
+    // Método que captura 5 personas y retorna el arreglo
+    public static Persona[] capturarNombreYGenero() {
         Scanner scanner = new Scanner(System.in);
 
-        // Arreglo para guardar 5 objetos Persona
         Persona[] personas = new Persona[5];
 
         System.out.println("== Ingreso de datos de 5 personas ==");
@@ -26,21 +25,34 @@ public class Main {
             System.out.print("Edad: ");
             int edad = Integer.parseInt(scanner.nextLine());
 
-            // Crear persona y agregar al arreglo
             personas[i] = new Persona(nombre, apellido, genero, edad);
         }
 
-        // Mostrar solo nombre y género de las 5 persona
         System.out.println("\n== Nombres y Géneros de las personas ingresadas ==");
         for (Persona persona : personas) {
             System.out.println("Nombre: " + persona.getNombre() + " | Género: " + persona.getGenero());
         }
 
         scanner.close();
+
+        return personas; // ahora retorna el arreglo
+    }
+
+    // Método que calcula el promedio de edad
+    public static double calcularEdadPromedio(Persona[] personas) {
+        int sumaEdades = 0;
+        for (Persona persona : personas) {
+            sumaEdades += persona.getEdad();
+        }
+        return (double) sumaEdades / personas.length;
     }
 
     // Método principal
     public static void main(String[] args) {
-        capturarNombreYGenero();
+        Persona[] personas = capturarNombreYGenero(); // recibe las personas
+
+        double promedio = calcularEdadPromedio(personas); // calcula promedio
+
+        System.out.println("\nPromedio de edad: " + promedio); // muestra resultado
     }
 }
