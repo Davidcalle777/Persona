@@ -66,7 +66,7 @@ public class Main {
         int cantidadMasculinos = contarMasculinos(personas);
         System.out.println("Cantidad de personas con género Masculino: " + cantidadMasculinos);
 
-        // 👉 Calcular y mostrar la cantidad de personas de género Femeninos
+        // Calcular y mostrar la cantidad de personas de género Femeninos
         int cantidadFemeninos = contarFemeninos(personas);
         System.out.println("Cantidad de personas con género Femenino: " + cantidadFemeninos);
     }
